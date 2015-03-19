@@ -1,0 +1,56 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="News.Vnexpress"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="VnexpressItem">
+            <Grid Height="130" Margin="0,3,0,15" toolkit:TiltEffect.IsTiltEnabled="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="{Binding image}" Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <Grid Grid.Column="1" Margin="12,-7,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="{Binding title}" FontWeight="Bold" FontSize="20"/>
+                    <TextBlock Grid.Row="1" Margin="0, 5, 0, 0"  Text="{Binding description}" TextWrapping="Wrap" TextTrimming="WordEllipsis" FontSize="13"/>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
+    <Grid x:Name="LayoutRoot" Background="#009688">
+        <!--Pivot Control-->
+        <phone:Pivot Title="VNEXPRESS" SelectionChanged="pivotSelectionChange" >
+            <!--Pivot item one-->
+            <phone:PivotItem Header="Trang chủ ">
+                <Grid>
+                    <phone:LongListSelector x:Name="VnexpressViewIndex" ItemTemplate="{StaticResource VnexpressItem}" Margin="-14,0" Background="Black" />
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="thời sự">
+                <Grid>
+                    <phone:LongListSelector x:Name="VnexpressViewCurrent" ItemTemplate="{StaticResource VnexpressItem}" Margin="-14,0" Background="Black" />
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>
