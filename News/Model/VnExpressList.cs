@@ -49,7 +49,7 @@ namespace News.Model {
                             image = getImage(item.description),
                             title = item.title,
                             link = item.link,
-                            description = getDescription(item.description),
+                            description = (item.description),
                         });
                     }
                 }
@@ -70,18 +70,6 @@ namespace News.Model {
             return result;
         }
 
-        private String getDescription(String str) {
-            //</br>(.*?).]]
-            var result = "";
-
-            var match = Regex.Match(str, "<img.*?>(.*?)]]", RegexOptions.IgnoreCase);
-            if (match.Groups.Count > 0) {
-                result = match.Groups[1].Value;
-
-            }
-                
-
-            return result;
-        }
+        
     }
 }
