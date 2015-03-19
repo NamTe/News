@@ -38,7 +38,7 @@
         <!--Pivot Control-->
         <phone:Pivot Title="VNEXPRESS" SelectionChanged="pivotSelectionChange" >
             <!--Pivot item one-->
-            <phone:PivotItem Header="Trang chủ ">
+            <phone:PivotItem Header="trang chủ ">
                 <Grid>
                     <phone:LongListSelector x:Name="VnexpressViewIndex" ItemTemplate="{StaticResource VnexpressItem}" Margin="-14,0" Background="Black" />
                 </Grid>
@@ -48,6 +48,12 @@
             <phone:PivotItem Header="thời sự">
                 <Grid>
                     <phone:LongListSelector x:Name="VnexpressViewCurrent" ItemTemplate="{StaticResource VnexpressItem}" Margin="-14,0" Background="Black" />
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="thế giới ">
+                <Grid>
+                    <phone:LongListSelector x:Name="VnexpressViewWorld" ItemTemplate="{StaticResource VnexpressItem}" Margin="-14,0" Background="Black" />
                 </Grid>
             </phone:PivotItem>
         </phone:Pivot>

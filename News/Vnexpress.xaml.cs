@@ -13,17 +13,20 @@ namespace News {
     public partial class Vnexpress : PhoneApplicationPage {
         private VnExpressList VnExpressIndex;
         private VnExpressList VnExpressCurrent;
+        private VnExpressList VnExpressWorld;
         public Vnexpress() {
             InitializeComponent();
             VnExpressIndex = new VnExpressList();
             VnExpressCurrent = new VnExpressList();
+            VnExpressWorld = new VnExpressList();
             VnexpressViewIndex.ItemsSource = VnExpressIndex;
             VnexpressViewCurrent.ItemsSource = VnExpressCurrent;
+            VnexpressViewWorld.ItemsSource = VnExpressWorld;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
-            
+
         }
 
         private void pivotSelectionChange(object sender, SelectionChangedEventArgs e) {
@@ -46,10 +49,16 @@ namespace News {
                         }
                         break;
                     }
+                case 2: {
+                        if (!VnExpressWorld.IsDataLoad) {
+                            VnExpressWorld.LoadData(Helper.VnExpressWorld);
+                        }
+                        break;
+                    }
             }
         }
 
-        
+
 
 
     }

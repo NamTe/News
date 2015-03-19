@@ -10,7 +10,7 @@ namespace News {
     public static class Helper {
         public const string VnExpressIndex = "http://vnexpress.net/rss/tin-moi-nhat.rss";
         public const string VnExpressCurrent = "http://vnexpress.net/rss/thoi-su.rss";
-        
+        public const string VnExpressWorld = "http://vnexpress.net/rss/the-gioi.rss";
     }
 
 }
