@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -49,8 +50,9 @@ namespace News.Model {
                             image = getImage(item.description),
                             title = item.title,
                             link = item.link,
-                            description = (item.description),
+                            description = getDescription(item.description),
                         });
+                        Debug.WriteLine(item.description);
                     }
                 }
             }
@@ -70,6 +72,16 @@ namespace News.Model {
             return result;
         }
 
+
+        private String getDescription(String str) {
+            var result = "";
+
+            var match = Regex.Match(str, ".*?br>(.*?)$", RegexOptions.IgnoreCase);
+            if (match.Groups.Count > 0)
+                result = match.Groups[1].Value;
+
+            return result;
+        }
         
     }
 }
