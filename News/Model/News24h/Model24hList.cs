@@ -23,10 +23,10 @@ namespace News.Model.News24h {
                 this.Clear();
                 WebClient wc = new WebClient();
                 wc.DownloadStringCompleted += wc_DownloadStringCompleted;
-                wc.DownloadStringAsync(new Uri(url));
+                wc.DownloadStringAsync(new Uri(url)); 
                 IsDataLoad = true;
             }
-            catch (Exception exc) {
+            catch (Exception e) {
                 return false;
             }
             return true;
