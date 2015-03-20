@@ -33,8 +33,15 @@ namespace News {
 
             }
             foreach (var item in bookMarkList) {
-                list.Add(item);
+                if (!list.Contains(item))
+                    list.Add(item);
             }
+            var SaveList = JsonConvert.SerializeObject(list);
+            IsolatedStorageSettings.ApplicationSettings[Helper.ListSaveKey] = SaveList;
+            IsolatedStorageSettings.ApplicationSettings.Save();
+        }
+
+        public static void DeleteItem(ObservableCollection<NewsItem> list) {
             var SaveList = JsonConvert.SerializeObject(list);
             IsolatedStorageSettings.ApplicationSettings[Helper.ListSaveKey] = SaveList;
             IsolatedStorageSettings.ApplicationSettings.Save();

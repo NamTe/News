@@ -46,11 +46,12 @@ namespace News.Model.News24h {
                     foreach (var item in rssDataBase.channel.item) {
                         Debug.WriteLine(item.title);
                         this.Add(new NewsItem() {
-                            image = "http://24h-img.24hstatic.com" + item.summaryImg,
+                            image = item.summaryImg,
                             title = item.title,
                             link = item.link,
                             description = item.description,
                         });
+                        Debug.WriteLine(item.summaryImg);
                     }
                 }
             }

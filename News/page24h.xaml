@@ -25,7 +25,7 @@
                     <ColumnDefinition Width="140"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Source="{Binding image}" Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <Image Grid.Column="0" Source="{Binding image}" ImageFailed="OnImageFailed" Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 <Grid Grid.Column="1" Margin="12,-7,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>

@@ -9,8 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using News.Resources;
 using Microsoft.Phone.Net.NetworkInformation;
-using Coding4Fun.Toolkit;
-using Coding4Fun.Toolkit.Controls;
+
 namespace News {
     public partial class MainPage : PhoneApplicationPage {
         // Constructor
@@ -43,9 +42,7 @@ namespace News {
         }
 
         private void menu_Click(object sender, EventArgs e) {
-            AboutPrompt aboutMe = new AboutPrompt();
-            aboutMe.Title = "About";
-            aboutMe.Show("NamTe", "@Tintac_Tk3", "tintac_tk3@yahoo.com", null);
+            NavigationService.Navigate(new Uri("/AboutPage.xaml", UriKind.Relative));
         }
 
 

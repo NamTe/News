@@ -48,7 +48,7 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0">
-            <toolkit:LongListMultiSelector x:Name="BookMarkView" ItemTemplate="{StaticResource BookMarkTemplate}" />
+            <toolkit:LongListMultiSelector x:Name="BookMarkView" ItemTemplate="{StaticResource BookMarkTemplate}" IsSelectionEnabledChanged="OnSelectionEnableChanged" />
         </Grid>
         <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="OverLay" Visibility="Collapsed">
             <TextBlock Text="It's empty right here :(" FontSize="25" />

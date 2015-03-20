@@ -8,7 +8,6 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using News.Model;
-using Coding4Fun.Toolkit.Controls;
 using System.Collections.ObjectModel;
 using Microsoft.Phone.Tasks;
 using System.Windows.Media.Imaging;
@@ -108,7 +107,7 @@ namespace News {
             ApplicationBar = new ApplicationBar();
             ApplicationBar.Mode = ApplicationBarMode.Minimized;
             if (((LongListMultiSelector)sender).SelectedItems.Count != 0) {
-
+                ApplicationBar.Mode = ApplicationBarMode.Default;
                 ApplicationBarIconButton appbarShare = new ApplicationBarIconButton(new Uri("/Assets/share.png", UriKind.Relative));
                 appbarShare.Text = "Share";
                 ApplicationBar.Buttons.Add(appbarShare);
@@ -124,9 +123,7 @@ namespace News {
         }
 
         private void menu_Click(object sender, EventArgs e) {
-            AboutPrompt aboutMe = new AboutPrompt();
-            aboutMe.Title = "About";
-            aboutMe.Show("NamTe", "@Tintac_Tk3", "tintac_tk3@yahoo.com", null);
+            NavigationService.Navigate(new Uri("/AboutPage.xaml", UriKind.Relative));
         }
 
         private void OnImageFailed(object sender, ExceptionRoutedEventArgs e) {
