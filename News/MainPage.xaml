@@ -78,9 +78,16 @@
                     Message="Tin Nhanh Vnexpress"
                     GroupTag="news" Height="174" FontSize="20"/>
             </Grid>
-
+            
         </Grid>
-
+        <Grid VerticalAlignment="Center" Height="Auto" Grid.Row="1" x:Name="Progressbar" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ProgressBar  IsIndeterminate="True" IsEnabled="True" Grid.Row="0"/>
+            <TextBlock Grid.Row="1" Text="Checking NetWork"  TextAlignment="Center" FontSize="25" FontWeight="Bold" Foreground="Black"  />
+        </Grid>
 
     </Grid>
 

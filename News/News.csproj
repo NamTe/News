@@ -101,6 +101,8 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\News24h\Model24h.cs" />
+    <Compile Include="Model\News24h\Model24hList.cs" />
     <Compile Include="Model\NewsItem.cs" />
     <Compile Include="Model\VnExpressList.cs" />
     <Compile Include="Model\VnExpressModel.cs" />

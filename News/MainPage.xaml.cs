@@ -21,22 +21,31 @@ namespace News {
         }
 
         private void On24hClik(object sender, System.Windows.Input.GestureEventArgs e) {
+            Progressbar.Visibility = System.Windows.Visibility.Visible;
             if (checkNetworkConnection()) {
+                Progressbar.Visibility = System.Windows.Visibility.Collapsed;
                 NavigationService.Navigate(new Uri("/page24h.xaml", UriKind.RelativeOrAbsolute));
             }
             else {
                 MessageBox.Show("Network not available");
             }
+            Progressbar.Visibility = System.Windows.Visibility.Collapsed;
         }
 
+
+        
+
+
         private void OnVnExpressClick(object sender, System.Windows.Input.GestureEventArgs e) {
+            Progressbar.Visibility = System.Windows.Visibility.Visible;
             if (checkNetworkConnection()) {
+                Progressbar.Visibility = System.Windows.Visibility.Collapsed;
                 NavigationService.Navigate(new Uri("/Vnexpress.xaml", UriKind.RelativeOrAbsolute));
             }
             else {
                 MessageBox.Show("Network not available");
             }
-            
+            Progressbar.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         public static bool checkNetworkConnection() {

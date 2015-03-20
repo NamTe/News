@@ -7,26 +7,54 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="False">
 
+    
+    
     <!--LayoutRoot is the root grid where all page content is placed-->
+
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="Item24h">
+            <Grid Height="130" Margin="0,3,0,15" toolkit:TiltEffect.IsTiltEnabled="True" Tap="OnItemTap">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="{Binding image}" Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <Grid Grid.Column="1" Margin="12,-7,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="{Binding title}" FontWeight="Bold" FontSize="25" LineHeight="28" TextWrapping="Wrap" TextTrimming="WordEllipsis"  MaxHeight="84"/>
+                    <TextBlock Grid.Row="1" Margin="0, 5, 0, 0"  Text="{Binding description}" TextWrapping="Wrap" TextTrimming="WordEllipsis" FontSize="15"/>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
     <Grid x:Name="LayoutRoot" Background="Transparent">
+        
         <!--Pivot Control-->
-        <phone:Pivot Title="MY APPLICATION">
+        <phone:Pivot Title="24H.COM.VN" Background="#FF008F13" SelectionChanged="PivotSelectionChanged" >
             <!--Pivot item one-->
-            <phone:PivotItem Header="item1">
-                <Grid/>
+            <phone:PivotItem Header="trang chủ" Margin="0,28,0,0" Background="Black">
+                <Grid>
+                    <toolkit:LongListMultiSelector x:Name="IndexView24h" ItemTemplate="{StaticResource Item24h}" IsSelectionEnabledChanged="NewsItemList_IsSelectionEnable" />
+                </Grid>
             </phone:PivotItem>
 
             <!--Pivot item two-->
-            <phone:PivotItem Header="item2">
-                <Grid/>
+            <phone:PivotItem Header="Bóng đá" Background="Black" Margin="0,28,0,0">
+                <Grid>
+                    <toolkit:LongListMultiSelector x:Name="SoccerView24h" ItemTemplate="{StaticResource Item24h}" IsSelectionEnabledChanged="NewsItemList_IsSelectionEnable" />
+                </Grid>
             </phone:PivotItem>
         </phone:Pivot>
     </Grid>
-    
+
 </phone:PhoneApplicationPage>
