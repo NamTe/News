@@ -9,7 +9,8 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using News.Resources;
 using Microsoft.Phone.Net.NetworkInformation;
-
+using Coding4Fun.Toolkit;
+using Coding4Fun.Toolkit.Controls;
 namespace News {
     public partial class MainPage : PhoneApplicationPage {
         // Constructor
@@ -17,7 +18,7 @@ namespace News {
             InitializeComponent();
 
             // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
+            BuildLocalizedApplicationBar();
         }
 
         private void On24hClik(object sender, System.Windows.Input.GestureEventArgs e) {
@@ -33,7 +34,19 @@ namespace News {
         }
 
 
-        
+        private void BuildLocalizedApplicationBar() {
+            ApplicationBar = new ApplicationBar();
+            ApplicationBar.Mode = ApplicationBarMode.Minimized;
+            ApplicationBarMenuItem menu = new ApplicationBarMenuItem("About");
+            menu.Click += menu_Click;
+            ApplicationBar.MenuItems.Add(menu);
+        }
+
+        private void menu_Click(object sender, EventArgs e) {
+            AboutPrompt aboutMe = new AboutPrompt();
+            aboutMe.Title = "About";
+            aboutMe.Show("NamTe", "@Tintac_Tk3", "tintac_tk3@yahoo.com", null);
+        }
 
 
         private void OnVnExpressClick(object sender, System.Windows.Input.GestureEventArgs e) {
@@ -57,6 +70,10 @@ namespace News {
             else if (ni == NetworkInterfaceType.None)
                 IsConnected = false;
             return IsConnected;
+        }
+
+        private void OnBookMarkClick(object sender, System.Windows.Input.GestureEventArgs e) {
+            NavigationService.Navigate(new Uri("/BookMark.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

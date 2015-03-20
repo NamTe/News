@@ -52,7 +52,7 @@ namespace News.Model {
                             link = item.link,
                             description = getDescription(item.description),
                         });
-                        Debug.WriteLine(item.description);
+                        
                     }
                 }
             }
@@ -68,7 +68,10 @@ namespace News.Model {
             var match = Regex.Match(str, "<img.*?src=\"(.*?)\".*?>", RegexOptions.IgnoreCase);
             if (match.Groups.Count > 0)
                 result = match.Groups[1].Value;
-
+            if (result.Trim().Length <= 0) {
+                result = "/Assest/News.png";
+            }
+            Debug.WriteLine(result + "\n");
             return result;
         }
 
@@ -79,7 +82,9 @@ namespace News.Model {
             var match = Regex.Match(str, ".*?br>(.*?)$", RegexOptions.IgnoreCase);
             if (match.Groups.Count > 0)
                 result = match.Groups[1].Value;
-
+            if (result.Length == 0) {
+                result = str;
+            }
             return result;
         }
         

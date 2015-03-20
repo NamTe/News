@@ -10,5 +10,9 @@ namespace News.Model {
         public String title { set; get; }
         public String link { get; set; }
         public String description { get; set; }
+
+        public override string ToString() {
+            return String.Format("Title: {0}\nLink: {1}\nDescription: {2}\n\n\n", title.Trim(), link.Trim(), description.Trim());
+        }
     }
 }

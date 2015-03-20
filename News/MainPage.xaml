@@ -45,49 +45,67 @@
 
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#009688">
-            <TextBlock Text="news" Margin="30,0,0,0" Padding="0,15" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
+        <Grid x:Name="TitlePanel" Grid.Row="0" Height="150" Margin="0,0,0,0" Background="#009688">
+            <Grid VerticalAlignment="Top" Height="50" x:Name="Progressbar" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ProgressBar  IsIndeterminate="True" IsEnabled="True" Grid.Row="0"/>
+                <TextBlock Grid.Row="1" Text="Checking NetWork.."  TextAlignment="Center" FontSize="25" Foreground="White"  />
+            </Grid>
+            <TextBlock VerticalAlignment="Bottom" Text="news" Margin="30,0,0,0" Padding="0,15" Style="{StaticResource PhoneTextTitle1Style}"/>
+
+        </Grid>
 
         <!--ContentPanel - place additional content here-->
 
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0" Background="#FFFEFFE9">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
             
-            <Grid Grid.Column="0" Tap="On24hClik">
+            <Grid Grid.Column="0" Grid.Row="0" Tap="On24hClik">
                 <toolkit:HubTile 
                     Background="#546E7A"
                     VerticalAlignment="Top"
-                    Margin="34,22,33,0"
+                    Margin="34,22,34,22"
                     Source="/Assets/icon24h.png"
                     Title="24h"
                     Message="Tin Tuc 24h"
                     GroupTag="news" Height="174" FontSize="20"/>
             </Grid>
 
-            <Grid Grid.Column="1" Tap="OnVnExpressClick">
+            <Grid Grid.Column="1" Grid.Row="0" Tap="OnVnExpressClick">
                 <toolkit:HubTile 
                     Background="#9E9E9E"
                     VerticalAlignment="Top"
-                    Margin="34,22,33,0"
+                    Margin="34,22,34,22"
                     Source="/Assets/vnexpress.jpg"
                     Title="Vnexpress"
                     Message="Tin Nhanh Vnexpress"
                     GroupTag="news" Height="174" FontSize="20"/>
             </Grid>
             
+            <Grid Grid.Column="0" Grid.Row="1" Tap="OnBookMarkClick">
+                <toolkit:HubTile 
+                    Background="Black"
+                    VerticalAlignment="Top"
+                    Margin="34,22,34,22"
+                    Source="/Assets/bookMarkIcon.png"
+                    Title="Book Mark"
+                    Message="Read it later"
+                    GroupTag="news" Height="174" FontSize="20"/>
+            </Grid>
+            
         </Grid>
-        <Grid VerticalAlignment="Center" Height="Auto" Grid.Row="1" x:Name="Progressbar" Visibility="Collapsed">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <ProgressBar  IsIndeterminate="True" IsEnabled="True" Grid.Row="0"/>
-            <TextBlock Grid.Row="1" Text="Checking NetWork"  TextAlignment="Center" FontSize="25" FontWeight="Bold" Foreground="Black"  />
-        </Grid>
+
+        
 
     </Grid>
 
