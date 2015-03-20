@@ -22,6 +22,11 @@ namespace News {
             VnexpressViewIndex.ItemsSource = VnExpressIndex;
             VnexpressViewCurrent.ItemsSource = VnExpressCurrent;
             VnexpressViewWorld.ItemsSource = VnExpressWorld;
+            BuildLocalizedApplicationBar();
+        }
+
+        private void BuildLocalizedApplicationBar() {
+            
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e) {
@@ -56,6 +61,16 @@ namespace News {
                         break;
                     }
             }
+        }
+
+        private void OnItemTap(object sender, System.Windows.Input.GestureEventArgs e) {
+            NewsItem SelectedNewItem = ((FrameworkElement)sender).DataContext as NewsItem;
+            if (SelectedNewItem != null)
+                NavigationService.Navigate(new Uri("/DetailPage.xaml?link=" + SelectedNewItem.link, UriKind.RelativeOrAbsolute));
+        }
+
+        private void NewsItemList_IsSelectionEnable(object sender, DependencyPropertyChangedEventArgs e) {
+
         }
 
 
