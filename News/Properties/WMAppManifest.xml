@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{37c13437-a00b-494a-9565-7d7a0f7ff8f2}" Title="News" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="News author" Description="Sample description" Publisher="News" PublisherID="{ec6abb18-d65f-4658-9a92-0064ba1f7118}">
+  <App xmlns="" ProductID="{37c13437-a00b-494a-9565-7d7a0f7ff8f2}" Title="News For WP Class" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="News author" Description="Sample description" Publisher="News" PublisherID="{ec6abb18-d65f-4658-9a92-0064ba1f7118}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
