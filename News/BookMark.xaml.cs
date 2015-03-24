@@ -86,6 +86,9 @@ namespace News {
 
         private void appbarDeleteBookMark_Click(object sender, EventArgs e) {
             delete();
+            if (BookMarkList.bookMarkList.Count == 0) {
+                OverLay.Visibility = System.Windows.Visibility.Visible;
+            }
         }
 
         private void appbarShare_Click(object sender, EventArgs e) {
